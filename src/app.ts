@@ -1,5 +1,5 @@
 import express from "express";
-import { userRouter } from "./routes/user.routes.ts";
+import { userRouter } from "./routes/user.routes";
 import { AppDataSource } from "./data-source";
 
 const app = express();
