@@ -1,12 +1,21 @@
-#Project Overview
-Objective : Build a REST API for managing users (CRUD operations: Create, Read, Update, Delete).
-Technologies :
+Project Overview
+Objective
+The goal of this project is to build a REST API for managing users, enabling CRUD (Create, Read, Update, Delete) operations.
+
+Technologies Used
 Backend: Node.js with TypeScript
+
 ORM: TypeORM for database interactions
+
 Database: MySQL
+
 API Framework: Express.js
-Features :
-Alice: Implement user creation functionality.
-Bob: Implement user deletion functionality.
-Carol: Implement user listing and retrieval functionality.
-Leader: Manage the main branch and ensure integration.
+
+Features
+Alice: Implement user creation functionality (Create user).
+
+Bob: Implement user deletion functionality (Delete user).
+
+Carol: Implement user listing and retrieval functionality (Read users).
+
+Leader: Manage the main branch, ensuring integration and code quality.
