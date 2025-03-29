@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarlouTadlip/user-management-api.git"
+    "url": "git+https://github.com/BrylDG/user-management-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MarlouTadlip/user-management-api/issues"
+    "url": "https://github.com/BrylDG/user-management-api/issues"
   },
-  "homepage": "https://github.com/MarlouTadlip/user-management-api#readme",
+  "homepage": "https://github.com/BrylDG/user-management-api#readme",
   "description": "",
   "dependencies": {
     "express": "^4.21.2",
