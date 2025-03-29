@@ -1,5 +1,6 @@
 Project Overview
-Objective
+
+Objective:
 The goal of this project is to build a REST API for managing users, enabling CRUD (Create, Read, Update, Delete) operations.
 
 Technologies Used
