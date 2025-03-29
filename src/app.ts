@@ -1,6 +1,6 @@
 import express from "express";
 import { userRouter } from "./routes/user.routes.ts";
-import { AppDataSource } from "./data-source.ts";
+import { AppDataSource } from "./data-source";
 
 const app = express();
 const port = 3000;

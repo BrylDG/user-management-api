@@ -1,32 +1,10 @@
 {
-  "name": "user-management-api",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BrylDG/user-management-api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/BrylDG/user-management-api/issues"
-  },
-  "homepage": "https://github.com/BrylDG/user-management-api#readme",
-  "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mysql2": "^3.14.0",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
     "typeorm": "^0.3.21"
   },
   "devDependencies": {
-    "@types/express": "^5.0.1",
-    "typescript": "^5.8.2"
+    "@types/express": "^5.0.1"
   }
 }
