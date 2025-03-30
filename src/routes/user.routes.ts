@@ -11,16 +11,42 @@ const userRepository = AppDataSource.getRepository(User);
 router.post('/', validateUserRequest, async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { firstname, lastname, middlename, email, password } = req.body;
-        
+
         // Create user (password will be hashed by the @BeforeInsert hook)
         const user = userRepository.create({ firstname, lastname, middlename, email, password });
         await userRepository.save(user);
-        
+
         // Return user with hashed password
         res.status(201).json({
             ...user,
             password: user.password // Show the hashed password
         });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// Get/List all Users
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const users = await userRepository.find();
+        res.json(users); // Returns all users with hashed passwords
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+// Get/List Specific User
+router.get('/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
+
+        const user = await userRepository.findOneBy({ id });
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        res.json(user); // Returns user with hashed password
     } catch (error) {
         next(error);
     }
