@@ -3,7 +3,7 @@
 <h2>Project Overview</h2>
 
 <h3>Objective</h3>
-<p>The goal of this project is to build a REST API for managing users, enabling CRUD (Create, Read, Update, Delete) operations.</p>
+<p>The goal of this project is to build a REST API for managing users, using CRUD (Create, Read, Update, Delete) operations.</p>
 
 <h3>Key Features</h3>
 <ul>
