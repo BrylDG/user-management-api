@@ -80,5 +80,26 @@ router.put('/:id', validateUserRequest, async (req: Request<{ id: string }>, res
     }
 });
 
+// Delete user
+router.delete('/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            return res.status(400).json({ message: "Invalid user ID" });
+        }
+
+        const result = await userRepository.delete(id);
+        if (result.affected === 0) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        res.status(200).json({ 
+            success: true,
+            message: "User deleted successfully" 
+        });
+    } catch (error) {
+        next(error);
+    }
+});
+
 
 export default router;
