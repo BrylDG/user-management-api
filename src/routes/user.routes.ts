@@ -26,13 +26,7 @@ router.post('/', validateUserRequest, async (req: Request, res: Response, next: 
     }
 });
 
-//DELETE ONE USER
-//userRouter.delete('/:id', deleteUser)
 
-// GET ALL USERS
-//userRouter.get("/", getAllUsers);
 
-// GET ONE USER BY ID
-//userRouter.get("/:id", getUserById);
 
 export default router;
