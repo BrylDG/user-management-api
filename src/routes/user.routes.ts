@@ -26,6 +26,32 @@ router.post('/', validateUserRequest, async (req: Request, res: Response, next: 
     }
 });
 
+// Get/List all Users
+router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const users = await userRepository.find();
+        res.json(users); // Returns all users with hashed passwords
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+// Get/List Specific User
+router.get('/:id', async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) return res.status(400).json({ message: "Invalid user ID" });
+
+        const user = await userRepository.findOneBy({ id });
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        res.json(user); // Returns user with hashed password
+    } catch (error) {
+        next(error);
+    }
+});
+
 //Update user
 router.put('/:id', validateUserRequest, async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
     try {
@@ -53,8 +79,6 @@ router.put('/:id', validateUserRequest, async (req: Request<{ id: string }>, res
         next(error);
     }
 });
-
-
 
 
 export default router;
