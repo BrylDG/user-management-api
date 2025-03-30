@@ -26,7 +26,7 @@ router.post('/', validateUserRequest, async (req: Request, res: Response, next: 
     }
 });
 
-// Update user
+//Update user
 router.put('/:id', validateUserRequest, async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
     try {
         const id = parseInt(req.params.id);
