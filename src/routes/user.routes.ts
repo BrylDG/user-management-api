@@ -52,7 +52,33 @@ router.get('/:id', async (req: Request<{ id: string }>, res: Response, next: Nex
     }
 });
 
+// Update user
+router.put('/:id', validateUserRequest, async (req: Request<{ id: string }>, res: Response, next: NextFunction) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (isNaN(id)) {
+            res.status(400).json({ message: "Invalid user ID" });
+            return;
+        }
 
+        const user = await userRepository.findOneBy({ id });
+        if (!user) {
+            res.status(404).json({ message: "User not found" });
+            return;
+        }
+        
+        // Handle password update securely
+        if (req.body.password) {
+            req.body.password = await bcrypt.hash(req.body.password, 10);
+        }
+        
+        userRepository.merge(user, req.body);
+        const updatedUser = await userRepository.save(user);
+        res.json(updatedUser);
+    } catch (error) {
+        next(error);
+    }
+});
 
 
 export default router;
